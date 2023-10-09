@@ -21,6 +21,11 @@ const type1Error = document.getElementById('proposal-error');
 const titleError = document.getElementById('title-feed-error');
 
 
+const width = window.innerWidth;
+const slider = document.querySelector(".slider-container");
+const sidebar = document.querySelector(".sidebar");
+const toggleBtn = document.querySelector("#toogle-button")
+
 showBtn?.addEventListener('click', (e) => {
   e.preventDefault()
   switch (password.type) {
@@ -281,7 +286,7 @@ var pdfDoc = null,
   pageNumPending = null,
   scale = 0.8,
   canvas = document?.getElementById('the-canvas'),
-  ctx = (canvas ? canvas.getContext('2d'): "") 
+  ctx = (canvas ? canvas.getContext('2d') : "")
 
 /**
  * Get page info from document, resize canvas accordingly, and render page.
@@ -421,4 +426,162 @@ const openModalPro = function () {
 // close the modal when the close button and overlay is clicked
 closeModalBtn[1]?.addEventListener("click", () => {
   closeModal(1)
+});
+
+
+
+
+if (width <= 768) {
+  slider?.classList.remove("slider-item-show3")
+  slider?.classList.add("slider-item-show2")
+}
+
+toggleBtn?.addEventListener("click", (e) => {
+  sidebar?.classList.toggle("show")
+})
+
+
+
+
+
+
+const inputs = document.getElementById("inputs");
+const title = document.getElementById("mobile-title");
+
+inputs?.addEventListener("input", function (e) {
+  const target = e.target;
+  const val = target.value;
+
+  if (isNaN(val)) {
+    target.value = "";
+    return;
+  }
+
+  if (val != "") {
+    const next = target.nextElementSibling;
+    if (next) {
+      next.focus();
+    }
+  }
+});
+
+inputs?.addEventListener("keyup", function (e) {
+  const target = e.target;
+  const key = e.key.toLowerCase();
+
+  if (key == "backspace" || key == "delete") {
+    target.value = "";
+    const prev = target.previousElementSibling;
+    if (prev) {
+      prev.focus();
+    }
+    return;
+  }
+});
+
+
+
+
+document?.addEventListener('DOMContentLoaded', function () {
+  const otpForm = document.querySelector('#otp-form');
+  const otpInputs = otpForm?.querySelectorAll('.input');
+  const err = document?.querySelector(".otp-error")
+
+  otpForm?.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let isValid = true;
+    err.textContent = ""
+
+    otpInputs?.forEach((input, index) => {
+      const value = input.value.trim();
+
+      if (!/^\d$/.test(value)) {
+        isValid = false;
+        err.textContent = "Enter a valid otp"
+      }
+
+      if (value === '') {
+        isValid = false;
+        err.textContent = "Enter a valid otp"
+      }
+
+      setTimeout(() => {
+        err.textContent = ""
+      }, 5000);
+    });
+
+    if (isValid) {
+      // Continue with form submission or other actions
+      alert('OTP is valid. Proceed with form submission.');
+      otpForm.reset(); // Optionally, reset the form after successful validation.
+    }
+  });
+});
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("profile-form");
+
+  form.addEventListener("submit", function (e) {
+    // Remove any previously displayed error messages
+    const errorSpans = document.querySelectorAll(".error");
+    errorSpans.forEach((span) => {
+      span.textContent = "";
+    });
+
+    let isValid = true;
+
+    // Validation for First Name
+    const firstNameInput = document.getElementById("first-name");
+    const firstNameError = document.getElementById("first-name-error");
+    if (firstNameInput.value.trim() === "") {
+      firstNameError.textContent = "First Name is required.";
+      isValid = false;
+    }
+
+    // Validation for Last Name
+    const lastNameInput = document.getElementById("last-name");
+    const lastNameError = document.getElementById("last-name-error");
+    if (lastNameInput.value.trim() === "") {
+      lastNameError.textContent = "Last Name is required.";
+      isValid = false;
+    }
+
+    // Validation for Phone Number
+    const phoneNumberInput = document.getElementById("phone-number");
+    const phoneNumberError = document.getElementById("phone-number-error");
+    const phoneNumberPattern = /^\d{10}$/; // Assuming 10-digit phone number
+    if (!phoneNumberPattern.test(phoneNumberInput.value)) {
+      phoneNumberError.textContent = "Please enter a valid 10-digit phone number.";
+      isValid = false;
+    }
+
+    // Validation for Email Address
+    const emailInput = document.getElementById("email");
+    const emailError = document.getElementById("email-error");
+    const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    if (!emailPattern.test(emailInput.value)) {
+      emailError.textContent = "Please enter a valid email address.";
+      isValid = false;
+    }
+
+    // Validation for Address (optional)
+    const addressInput = document.getElementById("address");
+    const addressError = document.getElementById("address-error");
+
+    if (addressInput.value.trim() === "") {
+      addressError.textContent = "Enter a valid address"
+    } else if (addressInput.value.length < 10) {
+      addressError.textContent = "Address value too short"
+    }
+
+    if (!isValid) {
+      e.preventDefault(); // Prevent form submission
+    }
+  });
 });

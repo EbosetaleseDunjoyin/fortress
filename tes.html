@@ -139,7 +139,7 @@
                 </button>
 
                 <div class="action-div-modal hidden">
-                  <div class="flex gap-x-2 items-center py-1" style="border-bottom: 1px solid #C4C4C4;">
+                  <div style="border-bottom: 1px solid #C4C4C4;">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M12.3667 1.01667C12.3667 2.34167 11.2834 3.425 9.95837 3.425H6.0417C4.7167 3.425 3.63337 2.34167 3.63337 1.01667C3.63337 0.549998 3.13337 0.258332 2.7167 0.474998C1.5417 1.1 0.741699 2.34166 0.741699 3.76666V11.6083C0.741699 13.6583 2.4167 15.3333 4.4667 15.3333H11.5334C13.5834 15.3333 15.2584 13.6583 15.2584 11.6083V3.76666C15.2584 2.34166 14.4584 1.1 13.2834 0.474998C12.8667 0.258332 12.3667 0.549998 12.3667 1.01667ZM8.3167 11.125H4.6667C4.32503 11.125 4.0417 10.8417 4.0417 10.5C4.0417 10.1583 4.32503 9.875 4.6667 9.875H8.3167C8.65837 9.875 8.9417 10.1583 8.9417 10.5C8.9417 10.8417 8.65837 11.125 8.3167 11.125ZM10.5 7.79167H4.6667C4.32503 7.79167 4.0417 7.50833 4.0417 7.16667C4.0417 6.825 4.32503 6.54166 4.6667 6.54166H10.5C10.8417 6.54166 11.125 6.825 11.125 7.16667C11.125 7.50833 10.8417 7.79167 10.5 7.79167Z"
@@ -147,7 +147,7 @@
                     </svg>
                     <button id="view-proposal" style="color: var(--text-black);">View proposal</button>
                   </div>
-                  <div class="flex gap-x-2 items-center py-1">
+                  <div>
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M17.5584 4.35833C16.2167 4.225 14.875 4.125 13.525 4.05V4.04166L13.3417 2.95833C13.2167 2.19166 13.0334 1.04166 11.0834 1.04166H8.90005C6.95838 1.04166 6.77505 2.14166 6.64172 2.95L6.46672 4.01666C5.69172 4.06666 4.91672 4.11666 4.14172 4.19166L2.44172 4.35833C2.09172 4.39166 1.84172 4.7 1.87505 5.04166C1.90838 5.38333 2.20838 5.63333 2.55838 5.6L4.25838 5.43333C8.62505 5 13.0251 5.16666 17.4417 5.60833C17.4667 5.60833 17.4834 5.60833 17.5084 5.60833C17.8251 5.60833 18.1 5.36666 18.1334 5.04166C18.1584 4.7 17.9084 4.39166 17.5584 4.35833Z"
@@ -172,7 +172,7 @@
               <th>
                 Proposal name
               </th>
-              <td class=" flex flex-start gap-x-2">
+              <td class="">
                 <span>Proposal type 1</span>
               </td>
               <td class="">
@@ -226,12 +226,10 @@
             </tr>
           </tbody>
         </table>
-
       </div>
 
     </div>
   </section>
-
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -239,7 +237,6 @@
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
 
   <script>
-    // let table = new DataTable('#usersTable');
     $('#usersTable').DataTable({
       responsive: true
     });
