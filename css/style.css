@@ -266,6 +266,53 @@ header button {
   column-gap: 1rem;
 }
 
+#proposal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: normal;
+}
+
+#create-proposal {
+  border-radius: 5px;
+  width: 202px;
+  height: 50px;
+  background: var(--background-blue);
+
+  color: var(--text-white);
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+  /* 200% */
+}
+
+#file-btn {
+  display: flex;
+  flex-direction: column;
+
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.row-one-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.all-proposal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem
+}
+
+#usersTable {
+  padding-top: 1rem
+}
+
 .proposal-container .flex-between h3:nth-child(2) {
   color: var(--text-green);
 }
@@ -283,7 +330,7 @@ header button {
   padding: 25px;
   overflow-x: auto;
 
-  padding-bottom: 0;
+  padding: 2rem;
 }
 
 .feedback-container .feedback {
@@ -889,6 +936,21 @@ button {
   gap: 16px;
   margin-top: 1rem;
 }
+
+#myButton {
+  display: none;
+}
+
+.all-proposal-form-container label {
+  margin-bottom: 1rem;
+  display: block;
+}
+
+#proposal-title {
+  margin-top: 1rem;
+}
+
+
 
 .login-form-container.otp-form-container form {
   gap: 25px;

@@ -276,7 +276,7 @@ var pdfjsLib = window['pdfjs-dist/build/pdf'];
 if (pdfjsLib) {
 
   // The workerSrc property shall be specified.
-  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://mozilla.github.io/pdf.js/build/pdf.worker.js';
+  pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
 
 }
 
@@ -527,7 +527,7 @@ document?.addEventListener('DOMContentLoaded', function () {
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("profile-form");
 
-  form.addEventListener("submit", function (e) {
+  form?.addEventListener("submit", function (e) {
     // Remove any previously displayed error messages
     const errorSpans = document.querySelectorAll(".error");
     errorSpans.forEach((span) => {
@@ -582,6 +582,79 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!isValid) {
       e.preventDefault(); // Prevent form submission
+    }
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Get references to form elements
+  const form = document.querySelector('.all-proposal-form');
+  const proposalType1 = document.getElementById('select-proposal-type-1');
+  const proposalType2 = document.getElementById('select-proposal-type-2');
+  const proposalTitle = document.getElementById('proposal-title');
+  const fileInput = document.getElementById('myButton');
+
+  // Get references to error message elements
+  const type1Error = document.getElementById('type-1-error');
+  const type2Error = document.getElementById('type-2-error');
+  const titleError = document.getElementById('title-error');
+  const fileError = document.getElementById('file-error');
+
+  form.addEventListener('submit', function (event) {
+    console.log(proposalType1.value, proposalType2.value);
+    // Initialize the error messages
+    type1Error.textContent = '';
+    type2Error.textContent = '';
+    titleError.textContent = '';
+    fileError.textContent = '';
+
+    // Validation for Proposal Type 1
+    if (proposalType1.value === '') {
+      type1Error.textContent = 'Please select a proposal type.';
+      event.preventDefault();
+    }
+
+    // Validation for Proposal Type 2
+    if (proposalType2.value === '') {
+      type2Error.textContent = 'Please select a user.';
+      event.preventDefault();
+    }
+
+    // Validation for Proposal Title
+    if (proposalTitle.value.trim() === '') {
+      titleError.textContent = 'Please enter a proposal title.';
+      event.preventDefault();
+    }
+
+    // Validation for File Upload
+    if (fileInput.files.length === 0) {
+      fileError.textContent = 'Please attach a proposal file.';
+      event.preventDefault();
     }
   });
 });

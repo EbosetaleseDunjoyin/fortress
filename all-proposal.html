@@ -328,6 +328,89 @@
             <h3> Proposal sent to Albert Flores</h3>
           </div>
         </div>
+      </div>
+    </div>
+
+
+    <div class="modal-container">
+      <section class="modal hidden">
+        <div class="tab-one">
+          <div style="display: flex; justify-content: space-between;">
+            <h3>Create Proposal</h3>
+            <button style="background: none;" class="btn-close">⨉</button>
+          </div>
+          <div>
+            <form class="all-proposal-form" id="proposal-form-div" style="">
+              <div class="row-one-form">
+                <div class="all-proposal-form-container" style="align-items: normal;">
+                  <label for="select-proposal-type">Select Proposal Type</label>
+                  <select id="select-proposal-type-1">
+                    <option selected value="" disabled>Select Proposal Type</option>
+                    <option>Proposal type 1</option>
+                    <option>Proposal type 2</option>
+                    <option>Proposal type 3</option>
+                  </select>
+                  <span id="type-1-error" class="error-text"></span>
+                </div>
+                <div class="all-proposal-form-container" style="align-items: normal;">
+                  <label for="select-proposal-type">Select User</label>
+                  <select id="select-proposal-type-2">
+                    <option selected value="" disabled>Select User</option>
+                    <option>User 1</option>
+                    <option>User 2</option>
+                    <option>User 3</option>
+                    <option>User 4</option>
+                  </select>
+                  <span id="type-2-error" class="error-text"></span>
+                </div>
+              </div>
+
+
+
+              <div>
+                <label for="proposal-title">Proposal Title</label>
+                <input class="mt-5" type="text" id="proposal-title">
+                <span id="title-error" class="error-text"></span>
+              </div>
+
+              
+              <div style="border: 2px solid #3F64CB; border-style: dashed; display: flex; justify-content: center; padding: 2rem;">
+                <input type="file" id="myButton">
+                <button id="file-btn" class="flex flex-col items-center justify-center  gap-x-3">
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.18C2 19.83 4.17 22 7.81 22H16.18C19.82 22 21.99 19.83 21.99 16.19V7.81C22 4.17 19.83 2 16.19 2ZM16.82 10.82C16.53 11.11 16.05 11.11 15.76 10.82L12.75 7.81V18C12.75 18.41 12.41 18.75 12 18.75C11.59 18.75 11.25 18.41 11.25 18V7.81L8.24 10.82C7.95 11.11 7.47 11.11 7.18 10.82C7.03 10.67 6.96 10.48 6.96 10.29C6.96 10.1 7.04 9.9 7.18 9.76L11.47 5.47C11.61 5.33 11.8 5.25 12 5.25C12.2 5.25 12.39 5.33 12.53 5.47L16.82 9.76C17.11 10.05 17.11 10.52 16.82 10.82Z"
+                        fill="#3F64CB" />
+                    </svg>
+                  </span>
+                  <span id="file-label">Attach Proposal File here</span>
+
+                </button>
+                
+              </div>
+              <div>
+                <span class="error" id="file-error"></span>
+              </div>
+
+              <div class="submit-proposal">
+                <button type="submit">Create Proposal</button>
+              </div>
+
+
+            </form>
+          </div>
+        </div>
+
+        <div class="tab-two hidden">
+          <div>
+            <div class="img">
+              <img src="img/tick-circle.svg" alt="tick">
+            </div>
+
+            <h3> Proposal sent to Albert Flores</h3>
+          </div>
+        </div>
       </section>
       <div class="overlay hidden"></div>
     </div>
