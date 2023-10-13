@@ -673,7 +673,7 @@ function addYearData(year, data) {
   const option = document.createElement('option');
   option.value = year;
   option.textContent = year;
-  yearSelect.appendChild(option);
+  yearSelect?.appendChild(option);
 }
 
 // Example data for two years
@@ -683,7 +683,7 @@ addYearData('2023', [16.4, 19.8, 26.8, 21.4, 40.6, 55.2, 7.4, 9.8, 87.8, 76, 190
 // Wait for the document to fully load
 document.addEventListener('DOMContentLoaded', function () {
   const yearSelect = document.getElementById('yearSelect');
-  const ctx = document.getElementById('myChart').getContext('2d');
+  const ctx = document.getElementById('myChart')?.getContext('2d');
   let chart = null;
 
   // Function to update the chart based on the selected year
