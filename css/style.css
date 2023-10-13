@@ -1231,25 +1231,101 @@ button {
 }
 
 
+.chart__section {
+  padding: 1.5rem;
+  margin: 3rem 0;
+  ;
+  background: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 20px;
+}
+
+#myChart {
+  width: 100%;
+  height: auto;
+}
 
 
+.chart__section label {
+  font-family: 'Manrope';
+}
+
+.chart__section select {
+  width: 70px
+}
+
+.pagination-feed div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0
+}
 
 
+.pagination-feed .nav-pag {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+}
 
+.pagination-feed .pag-nav-items {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px
+}
 
+.no-outline-btn {
+  background: none;
+  outline: none;
+  border: none;
+}
 
+.pag-nav-items button {
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 1.5em;
+  padding: 0.5em 1em;
+  margin-left: 2px;
+  text-align: center;
+  text-decoration: none !important;
+  cursor: pointer;
 
+  background: none;
+  
+}
 
+.pag-nav-items button.active {
+  background: var(--text-blue);
 
+  color: var(--text-white);
 
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 1.5em;
+  padding: 0.5em 1em;
+  margin-left: 2px;
+  text-align: center;
+  text-decoration: none !important;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 2px;
+}
 
-
-
-
-
-
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background: var(--background-blue) !important;
+  color: white !important;
+}
 
 @media screen and (max-width: 768px) {
+
+  .chart__section {
+    padding: .4rem;
+    margin: 1rem 0;
+    background: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 20px;
+  }
 
   #profile-form {
     margin-top: 5rem;
@@ -1304,6 +1380,7 @@ button {
     position: static;
     overflow-y: scroll;
     padding: 10px 10px;
+    margin-top: 3rem;
   }
 
   .dashboard-container header {
@@ -1377,11 +1454,16 @@ button {
   }
 
   .feedback-container {
-    margin-top: 5rem;
+    margin-top: 1.2rem;
+    padding-bottom: 3rem;
   }
 
   #loginForm label,
   #loginForm span {
     text-align: initial;
+  }
+
+  .edit-pro {
+    margin-top: 4.3rem
   }
 }

@@ -276,7 +276,7 @@ var pdfjsLib = window['pdfjs-dist/build/pdf'];
 if (pdfjsLib) {
 
   // The workerSrc property shall be specified.
-  pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'js/build/pdf.worker.js';
 
 }
 
@@ -625,7 +625,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const titleError = document.getElementById('title-error');
   const fileError = document.getElementById('file-error');
 
-  form.addEventListener('submit', function (event) {
+  form?.addEventListener('submit', function (event) {
     console.log(proposalType1.value, proposalType2.value);
     // Initialize the error messages
     type1Error.textContent = '';
@@ -656,5 +656,77 @@ document.addEventListener('DOMContentLoaded', function () {
       fileError.textContent = 'Please attach a proposal file.';
       event.preventDefault();
     }
+  });
+});
+
+
+
+
+// Dynamic data for different years
+const dataByYear = {};
+
+// Function to add data for a specific year
+function addYearData(year, data) {
+  dataByYear[year] = data;
+  // Populate the year options in the select element
+  const yearSelect = document.getElementById('yearSelect');
+  const option = document.createElement('option');
+  option.value = year;
+  option.textContent = year;
+  yearSelect.appendChild(option);
+}
+
+// Example data for two years
+addYearData('2022', [26.4, 39.8, 66.8, 66.4, 40.6, 55.2, 77.4, 69.8, 57.8, 76, 110.8, 142.6]);
+addYearData('2023', [16.4, 19.8, 26.8, 21.4, 40.6, 55.2, 7.4, 9.8, 87.8, 76, 190.8, 42.6]);
+
+// Wait for the document to fully load
+document.addEventListener('DOMContentLoaded', function () {
+  const yearSelect = document.getElementById('yearSelect');
+  const ctx = document.getElementById('myChart').getContext('2d');
+  let chart = null;
+
+  // Function to update the chart based on the selected year
+  function updateChart(selectedYear) {
+    if (chart) {
+      chart.destroy(); // Destroy the existing chart if it exists
+    }
+
+    chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [{
+          label: "Number of proposals",
+          backgroundColor: 'white',
+          borderColor: 'royalblue',
+          data: dataByYear[selectedYear],
+        }]
+      },
+      options: {
+        maintainAspectRatio: false, // Disable aspect ratio
+        responsive: true, // Enable responsiveness
+        layout: {
+          padding: 10,
+        },
+        legend: {
+          position: 'bottom',
+        },
+        title: {
+          display: true,
+          text: `Number of proposals (${selectedYear})`,
+        },
+        
+      },
+    });
+  }
+
+  // Initial chart display for the default year
+  updateChart(yearSelect.value);
+
+  // Event listener to update the chart when the year selection changes
+  yearSelect.addEventListener('change', (event) => {
+    const selectedYear = event.target.value;
+    updateChart(selectedYear);
   });
 });
