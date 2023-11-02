@@ -1,5 +1,7 @@
 const password = document?.querySelector(".input-div.password input");
-const showBtn = document?.querySelector(".login-form-container .show-password button");
+const showBtn = document?.querySelector(
+  ".login-form-container .show-password button"
+);
 const btnProposal = document?.querySelectorAll(".action-btn");
 const actionDiv = document?.querySelectorAll(".action-div-modal");
 let lastClickedIndex = null; // Keep track of the last clicked button
@@ -12,40 +14,36 @@ const openModalBtn = document.querySelector("#create-proposal");
 const closeModalBtn = document.querySelectorAll(".btn-close");
 const open = document.querySelector("#open");
 
-const feed = document.querySelectorAll("#send-feedback")
+const feed = document.querySelectorAll("#send-feedback");
 
-const feedBackForm = document.getElementById('feedback-form');
-const selectProposalType = document.getElementById('proposal');
-const proposalTitle = document.getElementById('feedback-textarea');
-const type1Error = document.getElementById('proposal-error');
-const titleError = document.getElementById('title-feed-error');
-
+const feedBackForm = document.getElementById("feedback-form");
+const selectProposalType = document.getElementById("proposal");
+const proposalTitle = document.getElementById("feedback-textarea");
+const type1Error = document.getElementById("proposal-error");
+const titleError = document.getElementById("title-feed-error");
 
 const width = window.innerWidth;
 const slider = document.querySelector(".slider-container");
 const sidebar = document.querySelector(".sidebar");
-const toggleBtn = document.querySelector("#toogle-button")
+const toggleBtn = document.querySelector("#toogle-button");
 
-showBtn?.addEventListener('click', (e) => {
-  e.preventDefault()
+showBtn?.addEventListener("click", (e) => {
+  e.preventDefault();
   switch (password.type) {
     case "text":
-      password.type = "password"
-      showBtn.textContent = "Show"
+      password.type = "password";
+      showBtn.textContent = "Show";
       break;
 
     case "password":
-      password.type = "text"
-      showBtn.textContent = "Hide"
+      password.type = "text";
+      showBtn.textContent = "Hide";
       break;
 
     default:
       break;
   }
-
-
-})
-
+});
 
 // Function to validate email format
 function isValidEmail(email) {
@@ -61,7 +59,7 @@ document.getElementById("loginForm")?.addEventListener("submit", function (e) {
   const usernameInput = document.getElementById("username");
   const passwordInput = document.getElementById("password");
   const name = document.getElementById("name");
-  const phone = document.getElementById("phone")
+  const phone = document.getElementById("phone");
 
   // Get error elements
   const usernameError = document.getElementById("usernameError");
@@ -76,13 +74,13 @@ document.getElementById("loginForm")?.addEventListener("submit", function (e) {
   phone.textContent = "";
 
   if (!name.value) {
-    nameError.textContent = "Name is required"
+    nameError.textContent = "Name is required";
   }
 
   if (!phone.value) {
-    phoneError.textContent = "Phone number is required"
+    phoneError.textContent = "Phone number is required";
   } else if (phone.value.length < 11) {
-    phoneError.textContent = "Enter a valid phone number"
+    phoneError.textContent = "Enter a valid phone number";
   }
 
   // Validate username/email
@@ -96,17 +94,20 @@ document.getElementById("loginForm")?.addEventListener("submit", function (e) {
   if (!passwordInput.value) {
     passwordError.textContent = "Password is required";
   } else if (password.value.length < 6) {
-    passwordError.textContent = "Password too short"
+    passwordError.textContent = "Password too short";
   }
 
   // If no errors, submit the form
-  if (!usernameError.textContent && !passwordError.textContent && phoneError.textContent) {
+  if (
+    !usernameError.textContent &&
+    !passwordError.textContent &&
+    phoneError.textContent
+  ) {
     // Perform form submission or other actions here
     console.log("Form submitted successfully");
     // You can add code to send the data to the server or perform other actions here
   }
 });
-
 
 btnProposal?.forEach((item, index) => {
   item.addEventListener("click", (e) => {
@@ -123,9 +124,6 @@ btnProposal?.forEach((item, index) => {
   });
 });
 
-
-
-
 // close modal function
 const closeModal = function (index) {
   modal[parseInt(index)]?.classList.add("hidden");
@@ -134,11 +132,11 @@ const closeModal = function (index) {
 
 // close the modal when the close button and overlay is clicked
 closeModalBtn[0]?.addEventListener("click", () => {
-  closeModal(0)
+  closeModal(0);
 });
 overlay?.addEventListener("click", () => {
-  closeModal(1)
-  closeModal(0)
+  closeModal(1);
+  closeModal(0);
 });
 
 // close modal when the Esc key is pressed
@@ -178,41 +176,28 @@ document.getElementById("myButton")?.addEventListener("change", (e) => {
   }
 });
 
-
-
-
-
-
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("proposal-form");
 
   form?.addEventListener("submit", function (event) {
     const fileInput = document.getElementById("myButton");
     const fileError = document.getElementById("file-label");
-    const tabOne = document.querySelector(".tab-one")
-    const tabTwo = document.querySelector(".tab-two")
-
-
+    const tabOne = document.querySelector(".tab-one");
+    const tabTwo = document.querySelector(".tab-two");
 
     if (fileInput?.files.length === 0) {
       fileError.innerHTML = "Please select a file before submitting.";
-      fileError.classList.toggle("error-file")
+      fileError.classList.toggle("error-file");
       event.preventDefault(); // Prevent form submission
     } else {
       fileError.textContent = ""; // Clear any previous error message
     }
 
-
     let isValid = true;
 
     // Reset error messages
     const errorElements = document.querySelectorAll(".error-text");
-    errorElements.forEach(errorElement => {
+    errorElements.forEach((errorElement) => {
       errorElement.textContent = "";
     });
 
@@ -220,7 +205,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const type1Select = document.getElementById("select-proposal-type-1");
     if (type1Select.value === "") {
       isValid = false;
-      document.getElementById("type-1-error").textContent = "Select Proposal Type";
+      document.getElementById("type-1-error").textContent =
+        "Select Proposal Type";
     }
 
     // Validation for Proposal Type 2
@@ -235,7 +221,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const titleValue = titleInput.value.trim();
     if (titleValue === "") {
       isValid = false;
-      document.getElementById("title-error").textContent = "Proposal Title is required.";
+      document.getElementById("title-error").textContent =
+        "Proposal Title is required.";
     }
 
     // Add more validations for other fields here...
@@ -244,40 +231,29 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!isValid) {
       event.preventDefault();
     }
-    tabOne.classList.add("hidden")
-    tabTwo.classList.remove("hidden")
+    tabOne.classList.add("hidden");
+    tabTwo.classList.remove("hidden");
   });
 });
-
-
-
-
-
 
 feed?.forEach((item) => {
   item?.addEventListener("click", () => {
     openModal();
-  })
-})
-
-
-
+  });
+});
 
 // PDF.JS
 
-
 // If absolute URL from the remote server is provided, configure the CORS
 // header on that server.
-var url = 'resume.pdf';
+var url = "resume.pdf";
 
 // Loaded via <script> tag, create shortcut to access PDF.js exports.
-var pdfjsLib = window['pdfjs-dist/build/pdf'];
+var pdfjsLib = window["pdfjs-dist/build/pdf"];
 
 if (pdfjsLib) {
-
   // The workerSrc property shall be specified.
-  pdfjsLib.GlobalWorkerOptions.workerSrc = 'js/build/pdf.worker.js';
-
+  pdfjsLib.GlobalWorkerOptions.workerSrc = "js/build/pdf.worker.js";
 }
 
 var pdfDoc = null,
@@ -285,8 +261,8 @@ var pdfDoc = null,
   pageRendering = false,
   pageNumPending = null,
   scale = 0.8,
-  canvas = document?.getElementById('the-canvas'),
-  ctx = (canvas ? canvas.getContext('2d') : "")
+  canvas = document?.getElementById("the-canvas"),
+  ctx = canvas ? canvas.getContext("2d") : "";
 
 /**
  * Get page info from document, resize canvas accordingly, and render page.
@@ -303,7 +279,7 @@ function renderPage(num) {
     // Render PDF page into canvas context
     var renderContext = {
       canvasContext: ctx,
-      viewport: viewport
+      viewport: viewport,
     };
     var renderTask = page.render(renderContext);
 
@@ -344,7 +320,7 @@ function onPrevPage() {
   pageNum--;
   queueRenderPage(pageNum);
 }
-document.getElementById('prev')?.addEventListener('click', onPrevPage);
+document.getElementById("prev")?.addEventListener("click", onPrevPage);
 
 /**
  * Displays next page.
@@ -356,7 +332,7 @@ function onNextPage() {
   pageNum++;
   queueRenderPage(pageNum);
 }
-document.getElementById('next')?.addEventListener('click', onNextPage);
+document.getElementById("next")?.addEventListener("click", onNextPage);
 
 /**
  * Asynchronously downloads PDF.
@@ -369,25 +345,22 @@ pdfjsLib?.getDocument(url).promise.then(function (pdfDoc_) {
   renderPage(pageNum);
 });
 
-
-
-
-feedBackForm?.addEventListener('submit', function (e) {
+feedBackForm?.addEventListener("submit", function (e) {
   // Reset error messages
-  type1Error.textContent = '';
-  titleError.textContent = '';
+  type1Error.textContent = "";
+  titleError.textContent = "";
 
   let isValid = true;
 
   // Proposal Type validation
-  if (selectProposalType.value === '') {
-    type1Error.textContent = 'Please select a proposal type.';
+  if (selectProposalType.value === "") {
+    type1Error.textContent = "Please select a proposal type.";
     isValid = false;
   }
 
   // Proposal Title validation
-  if (proposalTitle.value.trim() === '') {
-    titleError.textContent = 'Please enter a proposal title.';
+  if (proposalTitle.value.trim() === "") {
+    titleError.textContent = "Please enter a proposal title.";
     isValid = false;
   }
 
@@ -404,15 +377,13 @@ feedBackForm?.addEventListener('submit', function (e) {
   }
 });
 
-
-
 const proBtn = document.querySelectorAll("#view-proposal");
 
 proBtn.forEach((item) => {
   item.addEventListener("click", () => {
     openModalPro();
-  })
-})
+  });
+});
 
 // open modal function
 const openModalPro = function () {
@@ -420,30 +391,21 @@ const openModalPro = function () {
   overlay?.classList.remove("hidden");
 };
 
-
 // close modal function
 
 // close the modal when the close button and overlay is clicked
 closeModalBtn[1]?.addEventListener("click", () => {
-  closeModal(1)
+  closeModal(1);
 });
 
-
-
-
 if (width <= 768) {
-  slider?.classList.remove("slider-item-show3")
-  slider?.classList.add("slider-item-show2")
+  slider?.classList.remove("slider-item-show3");
+  slider?.classList.add("slider-item-show2");
 }
 
 toggleBtn?.addEventListener("click", (e) => {
-  sidebar?.classList.toggle("show")
-})
-
-
-
-
-
+  sidebar?.classList.toggle("show");
+});
 
 const inputs = document.getElementById("inputs");
 const title = document.getElementById("mobile-title");
@@ -479,50 +441,42 @@ inputs?.addEventListener("keyup", function (e) {
   }
 });
 
+document?.addEventListener("DOMContentLoaded", function () {
+  const otpForm = document.querySelector("#otp-form");
+  const otpInputs = otpForm?.querySelectorAll(".input");
+  const err = document?.querySelector(".otp-error");
 
-
-
-document?.addEventListener('DOMContentLoaded', function () {
-  const otpForm = document.querySelector('#otp-form');
-  const otpInputs = otpForm?.querySelectorAll('.input');
-  const err = document?.querySelector(".otp-error")
-
-  otpForm?.addEventListener('submit', function (e) {
+  otpForm?.addEventListener("submit", function (e) {
     e.preventDefault();
 
     let isValid = true;
-    err.textContent = ""
+    err.textContent = "";
 
     otpInputs?.forEach((input, index) => {
       const value = input.value.trim();
 
       if (!/^\d$/.test(value)) {
         isValid = false;
-        err.textContent = "Enter a valid otp"
+        err.textContent = "Enter a valid otp";
       }
 
-      if (value === '') {
+      if (value === "") {
         isValid = false;
-        err.textContent = "Enter a valid otp"
+        err.textContent = "Enter a valid otp";
       }
 
       setTimeout(() => {
-        err.textContent = ""
+        err.textContent = "";
       }, 5000);
     });
 
     if (isValid) {
       // Continue with form submission or other actions
-      alert('OTP is valid. Proceed with form submission.');
+      alert("OTP is valid. Proceed with form submission.");
       otpForm.reset(); // Optionally, reset the form after successful validation.
     }
   });
 });
-
-
-
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("profile-form");
@@ -557,7 +511,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const phoneNumberError = document.getElementById("phone-number-error");
     const phoneNumberPattern = /^\d{10}$/; // Assuming 10-digit phone number
     if (!phoneNumberPattern.test(phoneNumberInput.value)) {
-      phoneNumberError.textContent = "Please enter a valid 10-digit phone number.";
+      phoneNumberError.textContent =
+        "Please enter a valid 10-digit phone number.";
       isValid = false;
     }
 
@@ -575,9 +530,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const addressError = document.getElementById("address-error");
 
     if (addressInput.value.trim() === "") {
-      addressError.textContent = "Enter a valid address"
+      addressError.textContent = "Enter a valid address";
     } else if (addressInput.value.length < 10) {
-      addressError.textContent = "Address value too short"
+      addressError.textContent = "Address value too short";
     }
 
     if (!isValid) {
@@ -586,81 +541,53 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   // Get references to form elements
-  const form = document.querySelector('.all-proposal-form');
-  const proposalType1 = document.getElementById('select-proposal-type-1');
-  const proposalType2 = document.getElementById('select-proposal-type-2');
-  const proposalTitle = document.getElementById('proposal-title');
-  const fileInput = document.getElementById('myButton');
+  const form = document.querySelector(".all-proposal-form");
+  const proposalType1 = document.getElementById("select-proposal-type-1");
+  const proposalType2 = document.getElementById("select-proposal-type-2");
+  const proposalTitle = document.getElementById("proposal-title");
+  const fileInput = document.getElementById("myButton");
 
   // Get references to error message elements
-  const type1Error = document.getElementById('type-1-error');
-  const type2Error = document.getElementById('type-2-error');
-  const titleError = document.getElementById('title-error');
-  const fileError = document.getElementById('file-error');
+  const type1Error = document.getElementById("type-1-error");
+  const type2Error = document.getElementById("type-2-error");
+  const titleError = document.getElementById("title-error");
+  const fileError = document.getElementById("file-error");
 
-  form?.addEventListener('submit', function (event) {
+  form?.addEventListener("submit", function (event) {
     console.log(proposalType1.value, proposalType2.value);
     // Initialize the error messages
-    type1Error.textContent = '';
-    type2Error.textContent = '';
-    titleError.textContent = '';
-    fileError.textContent = '';
+    type1Error.textContent = "";
+    type2Error.textContent = "";
+    titleError.textContent = "";
+    fileError.textContent = "";
 
     // Validation for Proposal Type 1
-    if (proposalType1.value === '') {
-      type1Error.textContent = 'Please select a proposal type.';
+    if (proposalType1.value === "") {
+      type1Error.textContent = "Please select a proposal type.";
       event.preventDefault();
     }
 
     // Validation for Proposal Type 2
-    if (proposalType2.value === '') {
-      type2Error.textContent = 'Please select a user.';
+    if (proposalType2.value === "") {
+      type2Error.textContent = "Please select a user.";
       event.preventDefault();
     }
 
     // Validation for Proposal Title
-    if (proposalTitle.value.trim() === '') {
-      titleError.textContent = 'Please enter a proposal title.';
+    if (proposalTitle.value.trim() === "") {
+      titleError.textContent = "Please enter a proposal title.";
       event.preventDefault();
     }
 
     // Validation for File Upload
     if (fileInput.files.length === 0) {
-      fileError.textContent = 'Please attach a proposal file.';
+      fileError.textContent = "Please attach a proposal file.";
       event.preventDefault();
     }
   });
 });
-
-
-
 
 // Dynamic data for different years
 const dataByYear = {};
@@ -669,21 +596,27 @@ const dataByYear = {};
 function addYearData(year, data) {
   dataByYear[year] = data;
   // Populate the year options in the select element
-  const yearSelect = document.getElementById('yearSelect');
-  const option = document.createElement('option');
+  const yearSelect = document.getElementById("yearSelect");
+  const option = document.createElement("option");
   option.value = year;
   option.textContent = year;
-  yearSelect?.appendChild(option);
+  yearSelect.appendChild(option);
 }
 
 // Example data for two years
-addYearData('2022', [26.4, 39.8, 66.8, 66.4, 40.6, 55.2, 77.4, 69.8, 57.8, 76, 110.8, 142.6]);
-addYearData('2023', [16.4, 19.8, 26.8, 21.4, 40.6, 55.2, 7.4, 9.8, 87.8, 76, 190.8, 42.6]);
+addYearData(
+  "2022",
+  [26.4, 39.8, 66.8, 66.4, 40.6, 55.2, 77.4, 69.8, 57.8, 76, 110.8, 142.6]
+);
+addYearData(
+  "2023",
+  [16.4, 19.8, 26.8, 21.4, 40.6, 55.2, 7.4, 9.8, 87.8, 76, 190.8, 42.6]
+);
 
 // Wait for the document to fully load
-document.addEventListener('DOMContentLoaded', function () {
-  const yearSelect = document.getElementById('yearSelect');
-  const ctx = document.getElementById('myChart')?.getContext('2d');
+document.addEventListener("DOMContentLoaded", function () {
+  const yearSelect = document.getElementById("yearSelect");
+  const ctx = document.getElementById("myChart").getContext("2d");
   let chart = null;
 
   // Function to update the chart based on the selected year
@@ -693,15 +626,30 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     chart = new Chart(ctx, {
-      type: 'line',
+      type: "line",
       data: {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        datasets: [{
-          label: "Number of proposals",
-          backgroundColor: 'white',
-          borderColor: 'royalblue',
-          data: dataByYear[selectedYear],
-        }]
+        labels: [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ],
+        datasets: [
+          {
+            label: "Number of proposals",
+            backgroundColor: "white",
+            borderColor: "royalblue",
+            data: dataByYear[selectedYear],
+          },
+        ],
       },
       options: {
         maintainAspectRatio: false, // Disable aspect ratio
@@ -710,13 +658,12 @@ document.addEventListener('DOMContentLoaded', function () {
           padding: 10,
         },
         legend: {
-          position: 'bottom',
+          position: "bottom",
         },
         title: {
           display: true,
           text: `Number of proposals (${selectedYear})`,
         },
-        
       },
     });
   }
@@ -725,7 +672,7 @@ document.addEventListener('DOMContentLoaded', function () {
   updateChart(yearSelect.value);
 
   // Event listener to update the chart when the year selection changes
-  yearSelect.addEventListener('change', (event) => {
+  yearSelect.addEventListener("change", (event) => {
     const selectedYear = event.target.value;
     updateChart(selectedYear);
   });
