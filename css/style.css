@@ -137,7 +137,7 @@ select {
   background-color: var(--background-white);
   width: -webkit-fill-available;
   height: 90px;
-  z-index: 100000;
+  z-index: 1;
 
   display: flex;
   align-items: center;
@@ -837,19 +837,20 @@ tr {
   flex-direction: column;
   justify-content: center;
   gap: 0.4rem;
-  width: 50%;
+  width: 97%;
   padding: 4rem 3rem;
   min-height: 250px;
   position: absolute;
   z-index: 2;
-  top: 20%;
+  top: 0%;
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 15px;
 
 
-  min-height: 50vh;
-  height: 70vh;
+  /* min-height: 75vh; */
+  /* height: 80vh; */
+  bottom: 0;
   overflow-y: scroll;
   padding-top: 8rem;
 }

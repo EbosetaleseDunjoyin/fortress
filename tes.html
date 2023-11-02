@@ -12,236 +12,117 @@
     rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+
+  <style>
+    .pdfdiv {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
 </head>
 
 <body>
-  <section class="dashboard-container">
-    <div class="sidebar">
-      <div>
-        <div class="logo">
-          <a href="http://">
-            <img src="img/logo.png" alt="logo">
-          </a>
+  
 
-        </div>
 
-        <div class="navigation">
-          <ul>
-            <li>
-              <a href="/">Dashboard</a>
-            </li>
-            <li>
-              <a href="/all-users.html">All Users</a>
-            </li>
-            <li>
-              <a href="all-feedbacks.html">All Feedbacks</a>
-            </li>
-            <li>
-              <a href="all-proposal.html">All Proposal</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="content container">
-      <header>
-        <h1>All Users</h1>
-        <div class="header-profile flex-between">
-          <button>
-            <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M16.8 13.449V9.62358C16.7983 7.91915 16.1949 6.27033 15.0967 4.9691C13.9986 3.66788 12.4765 2.79823 10.8 2.51416V1.20295C10.8 0.883906 10.6736 0.577931 10.4485 0.352335C10.2235 0.126739 9.91826 0 9.6 0C9.28174 0 8.97651 0.126739 8.75147 0.352335C8.52643 0.577931 8.4 0.883906 8.4 1.20295V2.51416C6.72353 2.79823 5.20143 3.66788 4.10326 4.9691C3.0051 6.27033 2.40172 7.91915 2.4 9.62358V13.449C1.69974 13.6971 1.0932 14.1564 0.663526 14.7637C0.233854 15.371 0.00208741 16.0967 0 16.8413V19.2472C0 19.5662 0.126428 19.8722 0.351472 20.0978C0.576516 20.3234 0.88174 20.4501 1.2 20.4501H4.968C5.24434 21.4694 5.8476 22.3693 6.68471 23.0109C7.52183 23.6524 8.54627 24 9.6 24C10.6537 24 11.6782 23.6524 12.5153 23.0109C13.3524 22.3693 13.9557 21.4694 14.232 20.4501H18C18.3183 20.4501 18.6235 20.3234 18.8485 20.0978C19.0736 19.8722 19.2 19.5662 19.2 19.2472V16.8413C19.1979 16.0967 18.9661 15.371 18.5365 14.7637C18.1068 14.1564 17.5003 13.6971 16.8 13.449ZM4.8 9.62358C4.8 8.34741 5.30571 7.12351 6.20589 6.22113C7.10606 5.31874 8.32696 4.81179 9.6 4.81179C10.873 4.81179 12.0939 5.31874 12.9941 6.22113C13.8943 7.12351 14.4 8.34741 14.4 9.62358V13.2324H4.8V9.62358ZM9.6 21.6531C9.18117 21.6505 8.77029 21.5381 8.4082 21.3271C8.04611 21.1161 7.74541 20.8137 7.536 20.4501H11.664C11.4546 20.8137 11.1539 21.1161 10.7918 21.3271C10.4297 21.5381 10.0188 21.6505 9.6 21.6531ZM16.8 18.0442H2.4V16.8413C2.4 16.5222 2.52643 16.2162 2.75147 15.9906C2.97652 15.7651 3.28174 15.6383 3.6 15.6383H15.6C15.9183 15.6383 16.2235 15.7651 16.4485 15.9906C16.6736 16.2162 16.8 16.5222 16.8 16.8413V18.0442Z"
-                fill="#7C7C8D" />
-              <circle cx="14.5" cy="6.5" r="3.75" fill="#FF5E6F" stroke="white" stroke-width="1.5" />
-            </svg>
-
-          </button>
-
-          <div>
-            <img src="/img/avatar.png" alt="avatar">
-          </div>
-
-          <div class="user-profile">
-            <h6>Albert Flores</h6>
-            <ul class="flex-between">
-              <div></div>
-              <li>
-                <a href="">Settings</a>
-              </li>
-              <li>
-                <a href="">Logout</a>
-              </li>
-
-            </ul>
-          </div>
-        </div>
-      </header>
-    </div>
-
-    <div class="contents">
-      <div class="feedback-container" style="padding: 25px; overflow-x: auto;">
-        <table id="usersTable" class="display">
-          <thead>
-            <tr>
-              <th scope="col" class="">
-                Proposal name
-              </th>
-              <th scope="col" class="">
-                proposal type
-              </th>
-              <th scope="col" class="">
-                proposal status
-              </th>
-              <th scope="col" class="">
-                Date received
-              </th>
-
-              <th scope="col" class="">
-                ACTIONS
-              </th>
-              <th scope="col" class="">
-
-              </th>
-            </tr>
-          </thead>
-          <tbody class="my-proposal">
-
-            <tr>
-
-              <th>
-                Proposal name
-              </th>
-              <td class="">
-                <span>Proposal type 1</span>
-
-              </td>
-              <td class="">
-                Opened and signed
-              </td>
-              <td class="">
-                15-09-2023
-              </td>
-
-              <td class=" action-div">
-                <button class="action-btn" href="#">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 5C14 3.9 13.1 3 12 3C10.9 3 10 3.9 10 5C10 6.1 10.9 7 12 7C13.1 7 14 6.1 14 5Z"
-                      stroke="#292d32" stroke-width="1.5" />
-                    <path
-                      d="M14 19C14 17.9 13.1 17 12 17C10.9 17 10 17.9 10 19C10 20.1 10.9 21 12 21C13.1 21 14 20.1 14 19Z"
-                      stroke="#292d32" stroke-width="1.5" />
-                    <path
-                      d="M14 12C14 10.9 13.1 10 12 10C10.9 10 10 10.9 10 12C10 13.1 10.9 14 12 14C13.1 14 14 13.1 14 12Z"
-                      stroke="#292d32" stroke-width="1.5" />
-                  </svg>
-
-                </button>
-
-                <div class="action-div-modal hidden">
-                  <div style="border-bottom: 1px solid #C4C4C4;">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M12.3667 1.01667C12.3667 2.34167 11.2834 3.425 9.95837 3.425H6.0417C4.7167 3.425 3.63337 2.34167 3.63337 1.01667C3.63337 0.549998 3.13337 0.258332 2.7167 0.474998C1.5417 1.1 0.741699 2.34166 0.741699 3.76666V11.6083C0.741699 13.6583 2.4167 15.3333 4.4667 15.3333H11.5334C13.5834 15.3333 15.2584 13.6583 15.2584 11.6083V3.76666C15.2584 2.34166 14.4584 1.1 13.2834 0.474998C12.8667 0.258332 12.3667 0.549998 12.3667 1.01667ZM8.3167 11.125H4.6667C4.32503 11.125 4.0417 10.8417 4.0417 10.5C4.0417 10.1583 4.32503 9.875 4.6667 9.875H8.3167C8.65837 9.875 8.9417 10.1583 8.9417 10.5C8.9417 10.8417 8.65837 11.125 8.3167 11.125ZM10.5 7.79167H4.6667C4.32503 7.79167 4.0417 7.50833 4.0417 7.16667C4.0417 6.825 4.32503 6.54166 4.6667 6.54166H10.5C10.8417 6.54166 11.125 6.825 11.125 7.16667C11.125 7.50833 10.8417 7.79167 10.5 7.79167Z"
-                        fill="#292D32" />
-                    </svg>
-                    <button id="view-proposal" style="color: var(--text-black);">View proposal</button>
-                  </div>
-                  <div>
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M17.5584 4.35833C16.2167 4.225 14.875 4.125 13.525 4.05V4.04166L13.3417 2.95833C13.2167 2.19166 13.0334 1.04166 11.0834 1.04166H8.90005C6.95838 1.04166 6.77505 2.14166 6.64172 2.95L6.46672 4.01666C5.69172 4.06666 4.91672 4.11666 4.14172 4.19166L2.44172 4.35833C2.09172 4.39166 1.84172 4.7 1.87505 5.04166C1.90838 5.38333 2.20838 5.63333 2.55838 5.6L4.25838 5.43333C8.62505 5 13.0251 5.16666 17.4417 5.60833C17.4667 5.60833 17.4834 5.60833 17.5084 5.60833C17.8251 5.60833 18.1 5.36666 18.1334 5.04166C18.1584 4.7 17.9084 4.39166 17.5584 4.35833Z"
-                        fill="#F5112B" />
-                      <path
-                        d="M16.025 6.78334C15.825 6.575 15.55 6.45834 15.2666 6.45834H4.73329C4.44995 6.45834 4.16662 6.575 3.97495 6.78334C3.78329 6.99167 3.67495 7.275 3.69162 7.56667L4.20829 16.1167C4.29995 17.3833 4.41662 18.9667 7.32495 18.9667H12.675C15.5833 18.9667 15.7 17.3917 15.7916 16.1167L16.3083 7.575C16.325 7.275 16.2166 6.99167 16.025 6.78334ZM11.3833 14.7917H8.60829C8.26662 14.7917 7.98329 14.5083 7.98329 14.1667C7.98329 13.825 8.26662 13.5417 8.60829 13.5417H11.3833C11.725 13.5417 12.0083 13.825 12.0083 14.1667C12.0083 14.5083 11.725 14.7917 11.3833 14.7917ZM12.0833 11.4583H7.91662C7.57495 11.4583 7.29162 11.175 7.29162 10.8333C7.29162 10.4917 7.57495 10.2083 7.91662 10.2083H12.0833C12.425 10.2083 12.7083 10.4917 12.7083 10.8333C12.7083 11.175 12.425 11.4583 12.0833 11.4583Z"
-                        fill="#F5112B" />
-                    </svg>
-                    <button style="color: var(--text-red);">Delete</button>
-                  </div>
-                </div>
-              </td>
-
-              <td class="">
-                <button id="send-feedback">Send feedback</button>
-              </td>
-
-            </tr>
-
-            <tr class="">
-
-              <th>
-                Proposal name
-              </th>
-              <td class="">
-                <span>Proposal type 1</span>
-              </td>
-              <td class="">
-                Opened and signed
-              </td>
-              <td class="">
-                15-09-2023
-              </td>
-
-              <td class=" action-div">
-                <button class="action-btn" href="#">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 5C14 3.9 13.1 3 12 3C10.9 3 10 3.9 10 5C10 6.1 10.9 7 12 7C13.1 7 14 6.1 14 5Z"
-                      stroke="#292d32" stroke-width="1.5" />
-                    <path
-                      d="M14 19C14 17.9 13.1 17 12 17C10.9 17 10 17.9 10 19C10 20.1 10.9 21 12 21C13.1 21 14 20.1 14 19Z"
-                      stroke="#292d32" stroke-width="1.5" />
-                    <path
-                      d="M14 12C14 10.9 13.1 10 12 10C10.9 10 10 10.9 10 12C10 13.1 10.9 14 12 14C13.1 14 14 13.1 14 12Z"
-                      stroke="#292d32" stroke-width="1.5" />
-                  </svg>
-
-                </button>
-
-                <div class="action-div-modal hidden">
-                  <div class="" style="border-bottom: 1px solid #C4C4C4;">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M12.3667 1.01667C12.3667 2.34167 11.2834 3.425 9.95837 3.425H6.0417C4.7167 3.425 3.63337 2.34167 3.63337 1.01667C3.63337 0.549998 3.13337 0.258332 2.7167 0.474998C1.5417 1.1 0.741699 2.34166 0.741699 3.76666V11.6083C0.741699 13.6583 2.4167 15.3333 4.4667 15.3333H11.5334C13.5834 15.3333 15.2584 13.6583 15.2584 11.6083V3.76666C15.2584 2.34166 14.4584 1.1 13.2834 0.474998C12.8667 0.258332 12.3667 0.549998 12.3667 1.01667ZM8.3167 11.125H4.6667C4.32503 11.125 4.0417 10.8417 4.0417 10.5C4.0417 10.1583 4.32503 9.875 4.6667 9.875H8.3167C8.65837 9.875 8.9417 10.1583 8.9417 10.5C8.9417 10.8417 8.65837 11.125 8.3167 11.125ZM10.5 7.79167H4.6667C4.32503 7.79167 4.0417 7.50833 4.0417 7.16667C4.0417 6.825 4.32503 6.54166 4.6667 6.54166H10.5C10.8417 6.54166 11.125 6.825 11.125 7.16667C11.125 7.50833 10.8417 7.79167 10.5 7.79167Z"
-                        fill="#292D32" />
-                    </svg>
-                    <button id="view-proposal" style="color: var(--text-black);">View proposal</button>
-                  </div>
-                  <div class="">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M17.5584 4.35833C16.2167 4.225 14.875 4.125 13.525 4.05V4.04166L13.3417 2.95833C13.2167 2.19166 13.0334 1.04166 11.0834 1.04166H8.90005C6.95838 1.04166 6.77505 2.14166 6.64172 2.95L6.46672 4.01666C5.69172 4.06666 4.91672 4.11666 4.14172 4.19166L2.44172 4.35833C2.09172 4.39166 1.84172 4.7 1.87505 5.04166C1.90838 5.38333 2.20838 5.63333 2.55838 5.6L4.25838 5.43333C8.62505 5 13.0251 5.16666 17.4417 5.60833C17.4667 5.60833 17.4834 5.60833 17.5084 5.60833C17.8251 5.60833 18.1 5.36666 18.1334 5.04166C18.1584 4.7 17.9084 4.39166 17.5584 4.35833Z"
-                        fill="#F5112B" />
-                      <path
-                        d="M16.025 6.78334C15.825 6.575 15.55 6.45834 15.2666 6.45834H4.73329C4.44995 6.45834 4.16662 6.575 3.97495 6.78334C3.78329 6.99167 3.67495 7.275 3.69162 7.56667L4.20829 16.1167C4.29995 17.3833 4.41662 18.9667 7.32495 18.9667H12.675C15.5833 18.9667 15.7 17.3917 15.7916 16.1167L16.3083 7.575C16.325 7.275 16.2166 6.99167 16.025 6.78334ZM11.3833 14.7917H8.60829C8.26662 14.7917 7.98329 14.5083 7.98329 14.1667C7.98329 13.825 8.26662 13.5417 8.60829 13.5417H11.3833C11.725 13.5417 12.0083 13.825 12.0083 14.1667C12.0083 14.5083 11.725 14.7917 11.3833 14.7917ZM12.0833 11.4583H7.91662C7.57495 11.4583 7.29162 11.175 7.29162 10.8333C7.29162 10.4917 7.57495 10.2083 7.91662 10.2083H12.0833C12.425 10.2083 12.7083 10.4917 12.7083 10.8333C12.7083 11.175 12.425 11.4583 12.0833 11.4583Z"
-                        fill="#F5112B" />
-                    </svg>
-                    <button style="color: var(--text-red);">Delete</button>
-                  </div>
-                </div>
-              </td>
-
-              <td class="">
-                <button id="send-feedback">Send feedback</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-    </div>
-  </section>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+  <div style="position: absolute; left: 100px;top: 130px;">
+    <button id="sign-button">Sign Document</button>
+  </div>
+  <div class="pdfdiv"></div>
+  
+  <script src="dist/pspdfkit.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
 
   <script>
-    $('#usersTable').DataTable({
-      responsive: true
+    var instance = null; // Initialize instance as null
+
+    PSPDFKit.load({
+      document: 'resume.pdf',
+      container: '.pdfdiv',
+    })
+      .then((loadedInstance) => {
+        instance = loadedInstance; // Store the instance
+        console.log('Successfully mounted PSPDFKit', instance);
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
+
+    // Add a click event listener to the "Sign Document" button
+    document.getElementById("sign-button").addEventListener("click", () => {
+      if (instance) {
+        instance
+          .signDocument(null, generatePKCS7)
+          .then(() => {
+            console.log('Document signed.');
+          })
+          .catch((error) => {
+            console.error('The document could not be signed.', error);
+          });
+      }
     });
+
+    function generatePKCS7({ fileContents }) {
+      const certificatePromise = fetch(
+        'cert.pem',
+      ).then((response) => response.text());
+      const privateKeyPromise = fetch(
+        'private-key.pem',
+      ).then((response) => response.text());
+      return new Promise((resolve, reject) => {
+        Promise.all([certificatePromise, privateKeyPromise])
+          .then(([certificatePem, privateKeyPem]) => {
+            const certificate = forge.pki.certificateFromPem(
+              certificatePem,
+            );
+            const privateKey = forge.pki.privateKeyFromPem(
+              privateKeyPem,
+            );
+
+            const p7 = forge.pkcs7.createSignedData();
+            p7.content = new forge.util.ByteBuffer(
+              fileContents,
+            );
+            p7.addCertificate(certificate);
+            p7.addSigner({
+              key: privateKey,
+              certificate: certificate,
+              digestAlgorithm: forge.pki.oids.sha256,
+              authenticatedAttributes: [
+                {
+                  type: forge.pki.oids.contentType,
+                  value: forge.pki.oids.data,
+                },
+                {
+                  type: forge.pki.oids.messageDigest,
+                },
+                {
+                  type: forge.pki.oids.signingTime,
+                  value: new Date(),
+                },
+              ],
+            });
+
+            p7.sign({ detached: true });
+            const result = stringToArrayBuffer(
+              forge.asn1.toDer(p7.toAsn1()).getBytes(),
+            );
+            resolve(result);
+          })
+          .catch(reject);
+      });
+    }
+
+    // https://developers.google.com/web/updates/2012/06/How-to-convert-ArrayBuffer-to-and-from-String
+    function stringToArrayBuffer(binaryString) {
+      const buffer = new ArrayBuffer(binaryString.length);
+      let bufferView = new Uint8Array(buffer);
+      for (let i = 0, len = binaryString.length; i < len; i++) {
+        bufferView[i] = binaryString.charCodeAt(i);
+      }
+      return buffer;
+    }
   </script>
-  <script src="js/main.js"></script>
 </body>
 
 </html>
